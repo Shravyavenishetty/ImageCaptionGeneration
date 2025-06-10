@@ -21,7 +21,7 @@ model = Model(inputs=input1, outputs=output)
 model.summary()
 
 # Load your trained model
-model = load_model("best_model.h5", compile=False)
+model = load_model(r"C:\Users\shrav\OneDrive\Desktop\ImageCaptionGeneration_MajorProject\ImageCaptionGeneration\majorproject\imagecaptiongen\Flask\best_model.h5", compile=False)
 
 class GC:
     def __init__(self, captioning_model_path, tokenizer=None):
@@ -98,6 +98,10 @@ def home():
 def prediction():
     return render_template('prediction.html')
 
+@app.route('/services.html', methods=['GET'])
+def services():
+    return render_template('services.html')
+
 @app.route('/predcitioncaption', methods=['GET', 'POST'])
 def upload():
     if request.method == "POST":
@@ -111,7 +115,7 @@ def upload():
         file.save(filepath)
 
         tokenizer = None
-        gc_model = GC(captioning_model_path="best_model.h5", tokenizer=tokenizer)
+        gc_model = GC(captioning_model_path=r"C:\Users\shrav\OneDrive\Desktop\ImageCaptionGeneration_MajorProject\ImageCaptionGeneration\majorproject\imagecaptiongen\Flask\best_model.h5", tokenizer=tokenizer)
         predicted_caption = gc_model.generate_caption(filepath)
         print(predicted_caption)
 
