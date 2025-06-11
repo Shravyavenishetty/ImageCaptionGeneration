@@ -63,7 +63,7 @@ class GC:
         return self.map_class_to_caption(image_filename)
 
     def map_class_to_caption(self, image_filename):
-        captions_file = "captions.txt"  # Path to your captions.txt file
+        captions_file = r"C:\Users\shrav\OneDrive\Desktop\ImageCaptionGeneration_MajorProject\ImageCaptionGeneration\majorproject\imagecaptiongen\Flask\captions.txt"  # Path to your captions.txt file
 
         # Dictionary to store image-captions mapping
         image_caption_mapping = {}

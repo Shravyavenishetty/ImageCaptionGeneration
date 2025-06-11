@@ -181,7 +181,8 @@
             <h2 class="mb-3">Hence, the caption is:</h2>
             <div class="caption-box text-start">
               {% if prediction %}
-                {{ prediction.strip().replace('. ', '.\n') }}
+                {% set first_caption = prediction.strip().split('.')[0] + '.' %}
+                {{ first_caption }}
               {% else %}
                 No caption available.
               {% endif %}
